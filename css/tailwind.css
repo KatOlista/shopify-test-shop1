@@ -1,1 +1,43 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Beatrice', sans-serif;
+  src: url('BeatriceDeckTrial-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Beatrice', sans-serif;
+  src: url('BeatriceDeckTrial-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Beatrice', sans-serif;
+  src: url('BeatriceDeckTrial-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cambon', sans-serif;
+  src: url('Cambon-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cambon', sans-serif;
+  src: url('Cambon-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cambon', sans-serif;
+  src: url('Cambon-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
