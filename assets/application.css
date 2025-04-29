@@ -230,6 +230,12 @@
   .table {
     display: table;
   }
+  .w-\[5px\] {
+    width: 5px;
+  }
+  .w-\[24px\] {
+    width: 24px;
+  }
   .flex-shrink {
     flex-shrink: 1;
   }

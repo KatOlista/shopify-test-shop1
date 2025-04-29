@@ -13,8 +13,9 @@
     aria-controls="{{ localPosition }}List"
     aria-describedby="{{ localPosition }}Label"
   >
-    <span>{{ localization.language.endonym_name | capitalize }}</span>
-    {{ 'icon-caret.svg' | inline_asset_content }}
+    {% comment %} <span>{{ localization.language.endonym_name | capitalize }}</span> {% endcomment %}
+    {% comment %} {{ 'icon-caret.svg' | inline_asset_content }} {% endcomment %}
+    {{ '1icon-globe.svg' | inline_asset_content }}
   </button>
   <div class="disclosure__list-wrapper language-selector" hidden>
     <ul id="{{ localPosition }}List" role="list" class="disclosure__list list-unstyled">
