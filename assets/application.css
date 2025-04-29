@@ -451,6 +451,9 @@
   .py-\[8px\] {
     padding-block: 8px;
   }
+  .pt-0 {
+    padding-top: calc(var(--spacing) * 0);
+  }
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
   }
