@@ -62,17 +62,18 @@
 }
 
 .localization-form__select {
+  padding-inline: 0;
   border-radius: var(--inputs-radius-outset);
   position: relative;
   margin-bottom: 1.5rem;
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
   text-align: left;
-  min-height: calc(4rem + var(--inputs-border-width) * 2);
-  min-width: calc(7rem + var(--inputs-border-width) * 2);
+  /* min-height: calc(4rem + var(--inputs-border-width) * 2);
+  min-width: calc(7rem + var(--inputs-border-width) * 2); */
 }
 
 .disclosure__button.localization-form__select {
-  padding: calc(2rem + var(--inputs-border-width));
+  /* padding: calc(2rem + var(--inputs-border-width)); */
   background: rgb(var(--color-background));
 }
 
@@ -386,7 +387,8 @@
 }
 
 .js .header-localization:not(.menu-drawer__localization) .localization-form__select {
-  padding: 0 2.7rem 0 1.2rem;
+  /* padding: 0 2.7rem 0 1.2rem; */
+  padding: 0 12px;
   width: max-content;
   height: 3.8rem;
 }
@@ -431,11 +433,11 @@
 .menu-drawer__localization .localization-form__select {
   background-color: initial;
   margin-top: 0;
-  padding: 1rem 3.6rem 1rem 0rem;
+  /* padding: 1rem 3.6rem 1rem 0rem; */
 }
 
 .menu-drawer__localization .localization-form {
-  padding: 0;
+  padding: 0 12px;
 }
 
 .menu-drawer__localization .localization-form:only-child .localization-form__select {

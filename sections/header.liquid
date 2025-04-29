@@ -224,6 +224,8 @@
     {%- endif -%}
 
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
+      {% render 'header-search', input_id: 'Search-In-Modal' %}
+
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <localization-form class="small-hide medium-hide" data-prevent-hide>
@@ -247,7 +249,6 @@
           </localization-form>
         {%- endif -%}
       </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
 
       {%- if shop.customer_accounts_enabled -%}
         <a
@@ -277,6 +278,8 @@
           </span>
         </a>
       {%- endif -%}
+
+      <span class="inline-flex justify-center items-center px-[12px]">{{ '1icon-wishlist.svg' | inline_asset_content }}</span>
 
       {%- for block in section.blocks -%}
         {%- case block.type -%}
