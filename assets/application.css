@@ -601,6 +601,11 @@
       padding-top: 10px;
     }
   }
+  .md\:pl-\[10px\] {
+    @media (width >= 48rem) {
+      padding-left: 10px;
+    }
+  }
   .lg\:flex-1 {
     @media (width >= 64rem) {
       flex: 1;

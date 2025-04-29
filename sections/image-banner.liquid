@@ -105,7 +105,7 @@
         assign image_height_3 = section.settings.image_3.width | divided_by: section.settings.image_3.aspect_ratio
         assign image_height_2 = section.settings.image_2.width | divided_by: section.settings.image_2.aspect_ratio
         if section.settings.image != blank
-          assign image_class_double_img = 'bg-white pt-[10px] md:pt-0 pl-[10px] md:max-w-[36vw] h-[100%] absolute flex overflow-hidden flex-col justify-between gap-[10px] right-0 top-0 left-auto'
+          assign image_class_double_img = 'bg-white pt-[10px] md:pt-0 md:pl-[10px] md:max-w-[36vw] h-[100%] absolute flex overflow-hidden flex-col justify-between gap-[10px] right-0 top-0 left-auto'
           assign image_class_2 = 'w-[100%] md:w-[36vw] md:h-[50%] md:object-cover'
           assign image_class_3 = 'w-[100%] md:w-[36vw] md:h-[50%] md:object-cover'
         endif
