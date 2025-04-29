@@ -239,6 +239,27 @@
   .min-w-0 {
     min-width: calc(var(--spacing) * 0);
   }
+  .flex-\[3\%\] {
+    flex: 3%;
+  }
+  .flex-\[35\%\] {
+    flex: 35%;
+  }
+  .flex-\[35\,\%\] {
+    flex: 35,%;
+  }
+  .flex-\[36\%\] {
+    flex: 36%;
+  }
+  .flex-\[64\%\] {
+    flex: 64%;
+  }
+  .flex-\[64\] {
+    flex: 64;
+  }
+  .flex-\[\<value\>\] {
+    flex: <value>;
+  }
   .flex-shrink {
     flex-shrink: 1;
   }
@@ -254,6 +275,9 @@
   .resize {
     resize: both;
   }
+  .flex-col {
+    flex-direction: column;
+  }
   .flex-wrap {
     flex-wrap: wrap;
   }
@@ -268,6 +292,9 @@
   }
   .justify-start {
     justify-content: flex-start;
+  }
+  .gap-\[10px\] {
+    gap: 10px;
   }
   .gap-\[24px\] {
     gap: 24px;
