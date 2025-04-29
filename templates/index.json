@@ -40,7 +40,7 @@
         "image_2": "shopify://shop_images/woman-cross-legged-with-her-eyes-closed.png",
         "image_3": "shopify://shop_images/young-and-confident-women-cheers.jpg",
         "image_overlay_opacity": 40,
-        "image_height": "large",
+        "image_height": "medium",
         "image_behavior": "none",
         "desktop_content_position": "bottom-center",
         "desktop_content_alignment": "center",
