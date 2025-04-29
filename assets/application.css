@@ -251,6 +251,12 @@
   .w-\[5px\] {
     width: 5px;
   }
+  .w-\[10\] {
+    width: 10;
+  }
+  .w-\[10vw\] {
+    width: 10vw;
+  }
   .w-\[24px\] {
     width: 24px;
   }
@@ -280,6 +286,12 @@
   }
   .w-\[64vw\] {
     width: 64vw;
+  }
+  .w-\[100\%\] {
+    width: 100%;
+  }
+  .w-\[100vw\] {
+    width: 100vw;
   }
   .w-auto {
     width: auto;
@@ -442,6 +454,9 @@
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
   }
+  .pt-\[10px\] {
+    padding-top: 10px;
+  }
   .pb-8 {
     padding-bottom: calc(var(--spacing) * 8);
   }
@@ -532,6 +547,26 @@
       display: flex;
     }
   }
+  .md\:h-\[50\%\] {
+    @media (width >= 48rem) {
+      height: 50%;
+    }
+  }
+  .md\:w-\[36vw\] {
+    @media (width >= 48rem) {
+      width: 36vw;
+    }
+  }
+  .md\:w-\[64vw\] {
+    @media (width >= 48rem) {
+      width: 64vw;
+    }
+  }
+  .md\:max-w-\[36vw\] {
+    @media (width >= 48rem) {
+      max-width: 36vw;
+    }
+  }
   .md\:flex-1 {
     @media (width >= 48rem) {
       flex: 1;
@@ -549,6 +584,21 @@
         margin-inline-start: calc(calc(var(--spacing) * 10) * var(--tw-space-x-reverse));
         margin-inline-end: calc(calc(var(--spacing) * 10) * calc(1 - var(--tw-space-x-reverse)));
       }
+    }
+  }
+  .md\:object-cover {
+    @media (width >= 48rem) {
+      object-fit: cover;
+    }
+  }
+  .md\:pt-0 {
+    @media (width >= 48rem) {
+      padding-top: calc(var(--spacing) * 0);
+    }
+  }
+  .md\:pt-\[10px\] {
+    @media (width >= 48rem) {
+      padding-top: 10px;
     }
   }
   .lg\:flex-1 {

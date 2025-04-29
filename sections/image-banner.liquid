@@ -66,7 +66,7 @@
           assign image_class = 'banner__media-image-half'
         endif
         if section.settings.image_2 != blank and section.settings.image_3 != blank
-          assign image_class = 'w-[64vw]'
+          assign image_class = 'w-[100vw] md:w-[64vw]'
         endif
         if section.settings.image_2 != blank and section.settings.image_3 == blank and section.settings.stack_images_on_mobile
           assign sizes = stacked_sizes
@@ -77,7 +77,7 @@
         elsif section.settings.image_3 != blank and section.settings.image_2 == blank
           assign sizes = half_width
         elsif section.settings.image_3 != blank and section.settings.image_2 != blank
-          assign sizes = '64vw'
+          assign sizes = '(min-width: 750px) 64vw'
         else
           assign sizes = full_width
         endif
@@ -105,9 +105,9 @@
         assign image_height_3 = section.settings.image_3.width | divided_by: section.settings.image_3.aspect_ratio
         assign image_height_2 = section.settings.image_2.width | divided_by: section.settings.image_2.aspect_ratio
         if section.settings.image != blank
-          assign image_class_double_img = 'bg-white pl-[10px] max-w-[36vw] h-[100%] absolute flex overflow-hidden flex-col justify-between gap-[10px] right-0 top-0 left-auto'
-          assign image_class_2 = 'w-[36vw] h-[50%] object-cover'
-          assign image_class_3 = 'w-[36vw] h-[50%] object-cover'
+          assign image_class_double_img = 'bg-white pt-[10px] md:pt-0 pl-[10px] md:max-w-[36vw] h-[100%] absolute flex overflow-hidden flex-col justify-between gap-[10px] right-0 top-0 left-auto'
+          assign image_class_2 = 'w-[100%] md:w-[36vw] md:h-[50%] md:object-cover'
+          assign image_class_3 = 'w-[100%] md:w-[36vw] md:h-[50%] md:object-cover'
         endif
         if section.settings.image != blank and section.settings.stack_images_on_mobile
           assign sizes = stacked_sizes
