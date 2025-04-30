@@ -40,7 +40,7 @@
             >
           {%- endif -%}
           <p class="announcement-bar__message h5 uppercase">
-            <span class="text-[10px] font-[Beatrice]">{{ section.blocks.first.settings.text | escape }}</span>
+            <span class="text-[10px] font-bold">{{ section.blocks.first.settings.text | escape }}</span>
             {%- if section.blocks.first.settings.link != blank -%}
               {{- 'icon-arrow.svg' | inline_asset_content -}}
             {%- endif -%}
