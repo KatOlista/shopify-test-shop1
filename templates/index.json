@@ -42,7 +42,7 @@
         "full_width": false,
         "view_all_link": "<p>View Collection</p>",
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "link",
         "color_scheme": "scheme-4",
         "image_ratio": "adapt",
         "image_shape": "default",
