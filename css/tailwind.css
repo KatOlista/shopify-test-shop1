@@ -2,21 +2,21 @@
 
 @font-face {
   font-family: 'Beatrice', sans-serif;
-  src: url('BeatriceDeckTrial-Semibold.woff2') format('woff2');
+  src: url('BeatriceTrial-Semibold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Beatrice', sans-serif;
-  src: url('BeatriceDeckTrial-Regular.woff2') format('woff2');
+  src: url('BeatriceTrial-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Beatrice', sans-serif;
-  src: url('BeatriceDeckTrial-Bold.woff2') format('woff2');
+  src: url('BeatriceTrial-Bold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
 }

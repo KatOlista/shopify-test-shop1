@@ -48,6 +48,49 @@
     %}
 
     {% style %}
+      @font-face {
+        font-family: Beatrice;
+        src: url('{{ 'BeatriceTrial-Semibold.woff2' | asset_url }}') format('woff2');
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: Beatrice;
+        src: url('{{ 'BeatriceTrial-Regular.woff2' | asset_url }}') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: Beatrice;
+        src: url('{{  'BeatriceTrial-Bold.woff2' | asset_url }}') format('woff2');
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: Cambon;
+        src: url('{{  'Cambon-Light.woff2' | asset_url }}') format('woff2');
+        font-weight: 300;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: Cambon;
+        src: url('{{  'Cambon-LightItalic.woff2' | asset_url }}') format('woff2');
+        font-weight: 300;
+        font-style: italic;
+      }
+
+      @font-face {
+        font-family: Cambon;
+        src: url('{{ 'Cambon-Bold.woff2' | asset_url }}') format('woff2');
+        font-weight: bold;
+        font-style: normal;
+      }
+
+
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
       {{ body_font_bold | font_face: font_display: 'swap' }}
       {{ body_font_italic | font_face: font_display: 'swap' }}
@@ -100,12 +143,12 @@
       }
 
       :root {
-        --font-body-family: 'Cambon', {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+        --font-body-family: Cambon, {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
         --font-body-style: {{ settings.type_body_font.style }};
         --font-body-weight: {{ settings.type_body_font.weight }};
         --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
 
-        --font-heading-family: 'Beatrice', {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+        --font-heading-family: Beatrice, {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
 
@@ -260,7 +303,6 @@
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     <link rel="stylesheet" href="{{ 'application.css' | asset_url }}">
-
 
     {%- if settings.cart_type == 'drawer' -%}
       {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
