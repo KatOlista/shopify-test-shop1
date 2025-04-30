@@ -9,6 +9,7 @@
       "Courier New", monospace;
     --color-white: #fff;
     --spacing: 0.25rem;
+    --font-weight-light: 300;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --default-transition-duration: 150ms;
@@ -319,6 +320,10 @@
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
+  }
+  .font-light {
+    --tw-font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-light);
   }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);

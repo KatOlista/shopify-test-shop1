@@ -189,10 +189,15 @@
       <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <a
           href="{{ section.settings.collection.url }}"
-          class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+          class="font-light {% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
           aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title | escape }}"
         >
-          {{ 'sections.featured_collection.view_all' | t }}
+            {% if section.settings.view_all_link != blank %}
+              {{ section.settings.view_all_link }}
+            {% else %}
+              {{ 'sections.featured_collection.view_all' | t }}123123
+            {% endif %}
+          
         </a>
       </div>
     {%- endif -%}
@@ -272,7 +277,7 @@
       "type": "checkbox",
       "id": "show_description",
       "label": "t:sections.featured-collection.settings.show_description.label",
-      "default": false   
+      "default": false
     },
     {
       "type": "select",
@@ -307,7 +312,7 @@
       "default": 4,
       "label": "t:sections.featured-collection.settings.columns_desktop.label"
     },
-        {
+    {
       "type": "checkbox",
       "id": "enable_desktop_slider",
       "label": "t:sections.featured-collection.settings.enable_desktop_slider.label",
@@ -318,6 +323,11 @@
       "id": "full_width",
       "label": "t:sections.featured-collection.settings.full_width.label",
       "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "view_all_link",
+      "label": "View all link label"
     },
     {
       "type": "checkbox",
