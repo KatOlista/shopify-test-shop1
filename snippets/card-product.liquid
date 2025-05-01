@@ -144,9 +144,9 @@
         </div>
       </div>
       <div class="card__content">
-        <div class="card__information">
+        <div class="card__information flex flex-col gap-[4px]">
           {% if card_product.category != blank %}
-            <p class="font-light text-[16px]">{{ card_product.category | upcase | escape }}</p>
+            <p class="font-light text-[16px] leading-[124%]">{{ card_product.category | upcase | escape }}</p>
           {% endif %}
           
           <h3
@@ -609,8 +609,8 @@
       </div>
       <div class="card__content">
         <div class="card__information">
-          <h3 class="card__heading card__heading--placeholder{% if settings.card_style == 'standard' %} h5{% endif %}">
-            <a role="link" aria-disabled="true" class="full-unstyled-link">
+          <h3 class="card__heading leading-none card__heading--placeholder{% if settings.card_style == 'standard' %} h5{% endif %}">
+            <a role="link" aria-disabled="true" class="full-unstyled-link leading-none">
               {{ 'onboarding.product_title' | t }}
             </a>
           </h3>
