@@ -335,6 +335,9 @@
   .border-gray-400 {
     border-color: var(--color-gray-400);
   }
+  .bg-\[red\] {
+    background-color: red;
+  }
   .bg-white {
     background-color: var(--color-white);
   }

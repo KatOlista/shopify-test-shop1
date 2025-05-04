@@ -297,7 +297,13 @@
         {% if card_product.variants_count > 1 %}
           <ul>
             {% for variant in card_product.variants %}
-              <li class="w-[25px] h-[25px] border-[#d7d7d7] rounded-full {{ variant.title }}"></li>
+              {% if variant.metafields.custom.color != blank %}
+                
+              {% endif %}
+              
+              <li class="w-[25px] h-[25px] border-[#d7d7d7] rounded-full bg-[{{ variant.metafields.custom.color }}]">
+                {{ variant.title | downcase }}
+              </li>
             {% endfor %}
           </ul>
         {% endif %}
