@@ -44,14 +44,14 @@
         "show_view_all": true,
         "view_all_style": "link",
         "color_scheme": "scheme-4",
-        "image_ratio": "adapt",
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "padding_top": 100,
         "padding_bottom": 72
       }
