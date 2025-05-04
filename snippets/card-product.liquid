@@ -575,7 +575,7 @@
     </div>
 
     {% if card_product.variants_count > 1 %}
-      <ul class="flex gap-[16px]">
+      <ul class="flex gap-[16px] pb-[10px]">
         {% for variant in card_product.variants %}
           {% if variant.metafields.custom.color != blank %}
             {% assign color = variant.metafields.custom.color %}
