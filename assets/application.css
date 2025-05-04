@@ -302,6 +302,9 @@
   .gap-\[10px\] {
     gap: 10px;
   }
+  .gap-\[16px\] {
+    gap: 16px;
+  }
   .truncate {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -335,6 +338,9 @@
   .border-gray-400 {
     border-color: var(--color-gray-400);
   }
+  .bg-\[color\] {
+    background-color: color;
+  }
   .bg-\[red\] {
     background-color: red;
   }
@@ -352,6 +358,12 @@
   }
   .pt-0 {
     padding-top: calc(var(--spacing) * 0);
+  }
+  .pt-\[1\] {
+    padding-top: 1;
+  }
+  .pt-\[16px\] {
+    padding-top: 16px;
   }
   .pl-\[10px\] {
     padding-left: 10px;
