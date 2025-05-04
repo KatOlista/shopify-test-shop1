@@ -263,6 +263,9 @@
   .max-w-\[64\%\] {
     max-width: 64%;
   }
+  .max-w-\[100\%\] {
+    max-width: 100%;
+  }
   .min-w-0 {
     min-width: calc(var(--spacing) * 0);
   }
@@ -422,6 +425,12 @@
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+  }
+  .text-ellipsis {
+    text-overflow: ellipsis;
+  }
+  .whitespace-nowrap {
+    white-space: nowrap;
   }
   .text-\[\#D7D7D7\] {
     color: #D7D7D7;
