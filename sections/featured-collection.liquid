@@ -151,38 +151,28 @@
           {%- endfor -%}
         {%- endif -%}
       </ul>
-      {%- if show_mobile_slider or show_desktop_slider -%}
-        <div class="slider-buttons">
-          <button
-            type="button"
-            class="slider-button slider-button--prev"
-            name="previous"
-            aria-label="{{ 'general.slider.previous_slide' | t }}"
-            aria-controls="Slider-{{ section.id }}"
-          >
-            <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
-            </span>
-          </button>
-          <div class="slider-counter caption">
-            <span class="slider-counter--current">1</span>
-            <span aria-hidden="true"> / </span>
-            <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-            <span class="slider-counter--total">{{ products_to_display }}</span>
-          </div>
-          <button
-            type="button"
-            class="slider-button slider-button--next"
-            name="next"
-            aria-label="{{ 'general.slider.next_slide' | t }}"
-            aria-controls="Slider-{{ section.id }}"
-          >
-            <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
-            </span>
-          </button>
-        </div>
-      {%- endif -%}
+
+      {% if show_mobile_slider or show_desktop_slider %}
+        <ul class="justify-center {% if show_mobile_slider == false %} hidden md:flex {% endif %} {% if show_desktop_slider == false %} flex md:hidden {% endif %}" id="Slider-{{ section.id }}-bullets">
+          {% paginate section.settings.collection.products by section.settings.products_to_show %}
+            {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+              <li
+                slideId="{{ forloop.index }}"
+                class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                <button name="bullet" class="w-[24px] h-[24px] flex items-center justify-center opacity-20">
+                  <span class="block w-[6px] h-[6px] bg-black rounded-full"></span>
+                </button>
+              </li>
+            {%- endfor -%}
+          {% endpaginate %}
+        </ul>
+        
+      {% endif %}
     </slider-component>
 
     {%- if section.settings.show_view_all and more_in_collection -%}
@@ -206,6 +196,53 @@
     {%- endif -%}
   </div>
 </div>
+
+<script>
+  const section = document.querySelector('.section-{{ section.id }}-padding');
+  const slider = section.querySelector('#Slider-{{ section.id }}');
+  const bullets = Array.from(section.querySelectorAll('button[name="bullet"]'));
+
+  const setActiveBullet = (index = 0) => {
+    bullets.forEach((item, i) => {
+      if(!item.classList.contains('opacity-20')) {
+        item.classList.add('opacity-20')
+      }
+
+      if (i === index) {
+        item.classList.remove('opacity-20')
+      }
+    });
+  };
+
+  const setBullets = () => {
+    const index = Math.floor(slider.scrollLeft / 100);
+    setActiveBullet(index);
+  };
+
+  const goToSlide = (index) => {
+    const offset = index * 100;
+    slider.scrollTo({
+      left: offset,
+    });
+  };
+
+  const setActiveItem = () => {
+    const slideIndex = event.currentTarget.parentElement.getAttribute('slideId');
+    
+    bullets.forEach((item, i) => {
+      if(!item.classList.contains('opacity-20')) {
+        item.classList.add('opacity-20')
+      }
+    });
+
+    event.currentTarget.classList.remove('opacity-20');
+    goToSlide(slideIndex - 1);
+  }
+
+  bullets.forEach((item) => item.addEventListener('click', setActiveItem));
+  setActiveBullet();
+  slider.addEventListener('scroll', setBullets);
+</script>
 
 {% schema %}
 {

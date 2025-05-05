@@ -12,6 +12,7 @@
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-400: oklch(70.7% 0.022 261.325);
+    --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
     --font-weight-light: 300;
@@ -236,6 +237,18 @@
   .table {
     display: table;
   }
+  .h-\[6px\] {
+    height: 6px;
+  }
+  .h-\[15px\] {
+    height: 15px;
+  }
+  .h-\[16px\] {
+    height: 16px;
+  }
+  .h-\[24px\] {
+    height: 24px;
+  }
   .h-\[25px\] {
     height: 25px;
   }
@@ -244,6 +257,18 @@
   }
   .h-\[100\%\] {
     height: 100%;
+  }
+  .w-2 {
+    width: calc(var(--spacing) * 2);
+  }
+  .w-\[6px\] {
+    width: 6px;
+  }
+  .w-\[15px\] {
+    width: 15px;
+  }
+  .w-\[16px\] {
+    width: 16px;
   }
   .w-\[24px\] {
     width: 24px;
@@ -302,6 +327,9 @@
   .gap-\[4px\] {
     gap: 4px;
   }
+  .gap-\[8px\] {
+    gap: 8px;
+  }
   .gap-\[10px\] {
     gap: 10px;
   }
@@ -323,6 +351,10 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .border-r {
+    border-right-style: var(--tw-border-style);
+    border-right-width: 1px;
+  }
   .border-\[\#d7d7d7\] {
     border-color: #d7d7d7;
   }
@@ -341,11 +373,23 @@
   .border-gray-400 {
     border-color: var(--color-gray-400);
   }
+  .bg-\[0000\] {
+    background-color: 0000;
+  }
+  .bg-\[000000\] {
+    background-color: 000000;
+  }
+  .bg-\[00000020\] {
+    background-color: 00000020;
+  }
   .bg-\[color\] {
     background-color: color;
   }
   .bg-\[red\] {
     background-color: red;
+  }
+  .bg-black {
+    background-color: var(--color-black);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -456,6 +500,9 @@
   .underline {
     text-decoration-line: underline;
   }
+  .opacity-20 {
+    opacity: 20%;
+  }
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -483,6 +530,41 @@
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
+  }
+  .md\:flex {
+    @media (width >= 48rem) {
+      display: flex;
+    }
+  }
+  .md\:hidden {
+    @media (width >= 48rem) {
+      display: none;
+    }
+  }
+  .md\:h-\[25px\] {
+    @media (width >= 48rem) {
+      height: 25px;
+    }
+  }
+  .md\:w-\[25px\] {
+    @media (width >= 48rem) {
+      width: 25px;
+    }
+  }
+  .md\:gap-\[16px\] {
+    @media (width >= 48rem) {
+      gap: 16px;
+    }
+  }
+  .md\:pb-\[20px\] {
+    @media (width >= 48rem) {
+      padding-bottom: 20px;
+    }
+  }
+  .md\:pb-\[32px\] {
+    @media (width >= 48rem) {
+      padding-bottom: 32px;
+    }
   }
 }
 @font-face {

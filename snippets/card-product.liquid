@@ -575,14 +575,14 @@
     </div>
 
     {% if card_product.variants_count > 1 %}
-      <ul class="flex gap-[16px] pb-[10px]">
+      <ul class="flex gap-[8px] md:gap-[16px] pb-[10px] md:pb-[32px]">
         {% for variant in card_product.variants %}
           {% if variant.metafields.custom.color != blank %}
             {% assign color = variant.metafields.custom.color %}
             <li>
               <a
                 href="{{ card_product.url }}?variant={{ variant.id }}"
-                class="block w-[25px] h-[25px] border border-[#d7d7d7] rounded-full"
+                class="block w-[15px] h-[15px] md:w-[25px] md:h-[25px] border border-[#d7d7d7] rounded-full"
                 style="background-color: {{ color }}"
                 id="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}-{{ variant.id }}"
               >
