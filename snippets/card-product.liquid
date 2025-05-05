@@ -42,6 +42,12 @@
   -%}
   <div>
     <div class="card-wrapper product-card-wrapper underline-links-hover">
+      {% comment %} new!! {% endcomment %}
+      {% if card_product.metafields.custom.new == true %}
+        <div class="absolute top-[8px] left-[8px] w-[46px] h-[23px] flex justify-center items-center bg-[#0091DA] z-[999]">
+          <span class="uppercase text-[10px] text-white font-bold font-[Beatrice]">new</span>
+        </div>
+      {% endif %}
       <div
         class="
           card card--{{ settings.card_style }}
@@ -573,7 +579,7 @@
         </div>
       </div>
     </div>
-
+            {% comment %} variants visible at the bottom of a card {% endcomment %}
     {% if card_product.variants_count > 1 %}
       <ul class="flex gap-[8px] md:gap-[16px] pb-[10px] md:pb-[32px]">
         {% for variant in card_product.variants %}
