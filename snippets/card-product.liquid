@@ -40,14 +40,28 @@
       assign ratio = 1
     endif
   -%}
+
+  <style>
+    .show-now-btn-show {
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 1;
+    }
+
+    .show-now-btn-hide {
+      left: -100px;
+      opacity: 0;
+    }
+  </style>
   <div>
     <div class="card-wrapper product-card-wrapper underline-links-hover">
       {% comment %} new!! {% endcomment %}
       {% if card_product.metafields.custom.new == true %}
-        <div class="absolute top-[8px] left-[8px] w-[46px] h-[23px] flex justify-center items-center bg-[#0091DA] z-[999]">
+        <div class="absolute top-[8px] left-[8px] w-[46px] h-[23px] flex justify-center items-center bg-[#0091DA] z-[10]">
           <span class="uppercase text-[10px] text-white font-bold font-[Beatrice]">new</span>
         </div>
       {% endif %}
+
       <div
         class="
           card card--{{ settings.card_style }}
@@ -81,7 +95,7 @@
                   src="{{ card_product.featured_media | image_url: width: 533 }}"
                   sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                   alt="{{ card_product.featured_media.alt | escape }}"
-                  class="motion-reduce"
+                  class="motion-reduce selector-{{ card_product.id }}-variant-image"
                   {% unless lazy_load == false %}
                     loading="lazy"
                   {% endunless %}
@@ -162,14 +176,14 @@
                 id="title-{{ section_id }}-{{ card_product.id }}"
               {% endif %}
             >
-              <a
-                href="{{ card_product.url }}"
+              <p
+                {% comment %} href="{{ card_product.url }}" {% endcomment %}
                 id="CardLink-{{ section_id }}-{{ card_product.id }}"
                 class="max-w-[100%] full-unstyled-link font-bold text-[14px] whitespace-nowrap text-ellipsis overflow-hidden"
                 aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
               >
                 {{ card_product.title | upcase | escape }}
-              </a>
+              </p>
             </h3>
             <div class="card-information">
               {%- if show_vendor -%}
@@ -579,25 +593,78 @@
         </div>
       </div>
     </div>
-            {% comment %} variants visible at the bottom of a card {% endcomment %}
-    {% if card_product.variants_count > 1 %}
-      <ul class="flex gap-[8px] md:gap-[16px] pb-[10px] md:pb-[32px]">
-        {% for variant in card_product.variants %}
-          {% if variant.metafields.custom.color != blank %}
-            {% assign color = variant.metafields.custom.color %}
-            <li>
-              <a
-                href="{{ card_product.url }}?variant={{ variant.id }}"
-                class="block w-[15px] h-[15px] md:w-[25px] md:h-[25px] border border-[#d7d7d7] rounded-full"
-                style="background-color: {{ color }}"
-                id="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}-{{ variant.id }}"
-              >
-              </a>
-            </li>
+
+    {% comment %} 3dots button {% endcomment %}
+    <div class="absolute flex flex-col right-[8px] bottom-[90px] md:bottom-[155px] z-[10]">
+      <a
+        href="{{ card_product.url }}" 
+        class="flex md:hidden w-[32px] h-[32px] justify-center items-center rounded-full bg-white selector-{{ card_product.id }}-variant-link"
+      >
+        {{- '1icon-3dots.svg' | inline_asset_content -}}
+      </a>
+
+      <button class="invisible relative z-[-100] md:z-auto md:visible flex w-[32px] h-[32px] justify-center items-center rounded-full bg-white button-{{ card_product.id }}-3dots">
+        {{- '1icon-3dots.svg' | inline_asset_content -}}
+      </button>
+      <script>
+        document.querySelector('.button-{{ card_product.id }}-3dots').addEventListener('click', () => {
+          console.log('clicked');
+
+          document.querySelector('.selector-{{ card_product.id }}-show-now').classList.toggle('show-now-btn-show');
+          document.querySelector('.selector-{{ card_product.id }}-show-now').classList.toggle('show-now-btn-hide');
+
+        })
+      </script>
+    </div>
+
+    <div class="absolute md:flex whitespace-nowrap bottom-[155px] z-[10] transition-all duration-300 ease-linear show-now-btn-hide selector-{{ card_product.id }}-show-now">
+      <a
+        class="px-[10px] flex h-[32px] justify-center items-center rounded-full bg-white uppercase selector-{{ card_product.id }}-variant-link"
+        href="{{ card_product.url }}"
+      >
+        show now
+      </a>
+    </div>
+
+    {% comment %} variants {% endcomment %}
+      {% if card_product.options_with_values.size >= 1 %}
+        {% for option in card_product.options_with_values %}
+          {% if option.name == 'Color' %}
+            <ul class="flex gap-[8px] md:gap-[16px] pb-[10px] md:pb-[32px]">
+              {% for value in option.values %}
+                <li>
+                  <button
+                    class="block w-[15px] h-[15px] md:w-[25px] md:h-[25px] border border-[#d7d7d7] rounded-full selector-{{ card_product.id }}-select-variant selector-{{ variant.id }}-select-variant"
+                    style="background-color: {{ value.variant.metafields.custom.color }}"
+                    id="variant-{{ value.variant.id }}-id"
+                  >
+                  </button>
+                  <script>
+                    document.querySelector('#variant-{{ value.variant.id }}-id').addEventListener('click', (e) => {
+                      e.preventDefault();
+                      const links = document.querySelectorAll('.selector-{{ card_product.id }}-variant-link');
+                      const image = document.querySelector('.selector-{{ card_product.id }}-variant-image');
+
+                      links.forEach(link => link.setAttribute('href', '{{ card_product.url }}?variant={{ value.variant.id }}'));
+                      image.setAttribute('src', '{{ value.variant.featured_image | image_url: width: 533 }}');
+                      image.setAttribute('width', '{{ value.variant.featured_image.width }}');
+                      image.setAttribute('height', '{{ value.variant.featured_image.height }}');
+                      image.setAttribute('srcset', `
+                        {%- if value.variant.featured_image.width >= 165 -%}{{ value.variant.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
+                        {%- if value.variant.featured_image.width >= 360 -%}{{ value.variant.featured_image | image_url: width: 360 }} 360w,{%- endif -%}
+                        {%- if value.variant.featured_image.width >= 533 -%}{{ value.variant.featured_image | image_url: width: 533 }} 533w,{%- endif -%}
+                        {%- if value.variant.featured_image.width >= 720 -%}{{ value.variant.featured_image | image_url: width: 720 }} 720w,{%- endif -%}
+                        {%- if value.variant.featured_image.width >= 940 -%}{{ value.variant.featured_image | image_url: width: 940 }} 940w,{%- endif -%}
+                        {%- if value.variant.featured_image.width >= 1066 -%}{{ value.variant.featured_image | image_url: width: 1066 }} 1066w,{%- endif -%}
+                        {{ value.variant.image | image_url }} {{ value.variant.featured_image.width }}w`);
+                  });
+                </script>
+                </li>
+              {% endfor %}
+            </ul>
           {% endif %}
         {% endfor %}
-      </ul>
-    {% endif %}
+      {% endif %}
   </div>
 
 {%- else -%}
