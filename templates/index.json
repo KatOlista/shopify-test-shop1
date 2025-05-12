@@ -55,10 +55,59 @@
         "padding_top": 100,
         "padding_bottom": 72
       }
+    },
+    "timer_banner_MhRAQK": {
+      "type": "timer-banner",
+      "blocks": {
+        "heading_EzHGnm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_6Ef8Tn": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_fyyRRY": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_EzHGnm",
+        "text_6Ef8Tn",
+        "buttons_fyyRRY"
+      ],
+      "name": "Timer banner",
+      "settings": {
+        "image": "shopify://shop_images/timer-banner.png",
+        "image_2": "shopify://shop_images/timer-banner-mobile.png",
+        "image_overlay_opacity": 0,
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "scheme-5",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "timer_banner_MhRAQK"
   ]
 }
