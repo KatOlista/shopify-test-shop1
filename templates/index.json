@@ -94,7 +94,7 @@
       "settings": {
         "image": "shopify://shop_images/timer-banner.png",
         "image_2": "shopify://shop_images/timer-banner-mobile.png",
-        "deadline": "2025, 06, 30, 00, 00",
+        "deadline": "2025, 06, 30, 0, 0, 0",
         "image_overlay_opacity": 0,
         "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
