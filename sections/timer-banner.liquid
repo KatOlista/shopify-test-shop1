@@ -174,7 +174,8 @@
           const secsSpan = document.getElementById("timer-{{ section.id }}-secs");
 
           const parts = '{{ section.settings.deadline }}'.split(',').map(part => parseInt(part.trim(), 10));
-          const endDate = new Date(...parts);
+          const [year, month, day, hour, minute, second] = parts;
+          const endDate = new Date(year, month - 1, day, hour, minute, second); 
 
           if (endDate > new Date()) {
             const updateTimer = (endDate) => {
