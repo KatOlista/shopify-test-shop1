@@ -168,11 +168,43 @@
           </p>
         </div>
         <script>
-          document.getElementById('timer-{{ section.id }}-section');
-          const currentDate = new Date();
-          console.log(currentDate);
-          // const endDate = new Date('{{ section.settings.deadline }}');
-          console.log('{{ section.settings.deadline }}');
+          const daysSpan = document.getElementById("timer-{{ section.id }}-days");
+          const hoursSpan = document.getElementById("timer-{{ section.id }}-hours");
+          const minsSpan = document.getElementById("timer-{{ section.id }}-mins");
+          const secsSpan = document.getElementById("timer-{{ section.id }}-secs");
+
+          const parts = '{{ section.settings.deadline }}'.split(',').map(part => parseInt(part.trim(), 10));
+          const endDate = new Date(...parts);
+          let days = '00';
+          let hours = '00';
+          let minutes = '00';
+          let seconds = '00';
+
+          if (endDate > new Date()) {
+            const updateTimer = (endDate) => {
+              const now = new Date();
+              const remainingTime = endDate - now;
+
+              const totalSeconds = Math.floor(remainingTime / 1000);
+              days = Math.floor(totalSeconds / (3600 * 24));
+              hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+              minutes = Math.floor((totalSeconds % 3600) / 60);
+              seconds = totalSeconds % 60;
+
+              daysSpan.textContent = `${String(days).padStart(2, '0')}`;
+              hoursSpan.textContent = `${String(hours).padStart(2, '0')}`;
+              minsSpan.textContent = `${String(minutes).padStart(2, '0')}`;
+              secsSpan.textContent = `${String(seconds).padStart(2, '0')}`;
+            };
+
+            updateTimer(endDate);
+            timerInterval = setInterval(() => updateTimer(endDate), 1000);
+          } else {
+            daysSpan.textContent = days;
+            hoursSpan.textContent = hours;
+            minsSpan.textContent = minutes;
+            secsSpan.textContent = seconds;
+          }
         </script>
       {% comment %} {% endif %} {% endcomment %}
     </div>
