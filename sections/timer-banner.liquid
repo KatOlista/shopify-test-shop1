@@ -145,7 +145,7 @@
     </div>
 
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
-      {% comment %} {% if section.settings.deadline != blank %} {% endcomment %}
+      {% if section.settings.deadline != blank %}
         <div id="timer-{{ section.id }}-section" class="flex items-start">
           <p class="flex flex-col justify-center items-center">
             <span id="timer-{{ section.id }}-days" class="block py-[16px] pl-[10px] text-[28px] text-center" style="letter-spacing: 10px;">10</span>
@@ -206,7 +206,7 @@
             secsSpan.textContent = seconds;
           }
         </script>
-      {% comment %} {% endif %} {% endcomment %}
+      {% endif %}
     </div>
   </div>
 </div>
