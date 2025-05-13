@@ -148,22 +148,22 @@
       {% if section.settings.deadline != blank %}
         <div id="timer-{{ section.id }}-section" class="flex items-start">
           <p class="flex flex-col justify-center items-center">
-            <span id="timer-{{ section.id }}-days" class="block py-[16px] pl-[10px] text-[28px] text-center" style="letter-spacing: 10px;">10</span>
+            <span id="timer-{{ section.id }}-days" class="block py-[16px] pl-[10px] text-[28px] text-center" style="letter-spacing: 10px;">00</span>
             <span class="text-[12px]">DAY</span>
           </p>
           <span class="block py-[16px] text-[28px] text-center">:</span>
           <p class="flex flex-col justify-center items-center">
-            <span id="timer-{{ section.id }}-hours" class="block py-[16px] pl-[10px] text-[28px] text-center" style="letter-spacing: 10px;">10</span>
+            <span id="timer-{{ section.id }}-hours" class="block py-[16px] pl-[10px] text-[28px] text-center" style="letter-spacing: 10px;">00</span>
             <span class="text-[12px]">HOUR</span>
           </p>
           <span class="block py-[16px] text-[28px] text-center">:</span>
           <p class="flex flex-col justify-center items-center">
-            <span id="timer-{{ section.id }}-mins" class="block py-[16px] pl-[10px] text-[28px] text-center" style="letter-spacing: 10px;">10</span>
+            <span id="timer-{{ section.id }}-mins" class="block py-[16px] pl-[10px] text-[28px] text-center" style="letter-spacing: 10px;">00</span>
             <span class="text-[12px]">MIN</span>
           </p>
           <span class="block py-[16px] text-[28px] text-center">:</span>
           <p class="flex flex-col justify-center items-center">
-            <span id="timer-{{ section.id }}-secs" class="block py-[16px] pl-[10px] text-[28px] text-center" style="letter-spacing: 10px;">10</span>
+            <span id="timer-{{ section.id }}-secs" class="block py-[16px] pl-[10px] text-[28px] text-center" style="letter-spacing: 10px;">00</span>
             <span class="text-[12px]">SEC</span>
           </p>
         </div>
@@ -175,10 +175,6 @@
 
           const parts = '{{ section.settings.deadline }}'.split(',').map(part => parseInt(part.trim(), 10));
           const endDate = new Date(...parts);
-          let days = '00';
-          let hours = '00';
-          let minutes = '00';
-          let seconds = '00';
 
           if (endDate > new Date()) {
             const updateTimer = (endDate) => {
@@ -186,10 +182,10 @@
               const remainingTime = endDate - now;
 
               const totalSeconds = Math.floor(remainingTime / 1000);
-              days = Math.floor(totalSeconds / (3600 * 24));
-              hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
-              minutes = Math.floor((totalSeconds % 3600) / 60);
-              seconds = totalSeconds % 60;
+              const days = Math.floor(totalSeconds / (3600 * 24));
+              const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+              const minutes = Math.floor((totalSeconds % 3600) / 60);
+              const seconds = totalSeconds % 60;
 
               daysSpan.textContent = `${String(days).padStart(2, '0')}`;
               hoursSpan.textContent = `${String(hours).padStart(2, '0')}`;
@@ -199,11 +195,6 @@
 
             updateTimer(endDate);
             timerInterval = setInterval(() => updateTimer(endDate), 1000);
-          } else {
-            daysSpan.textContent = days;
-            hoursSpan.textContent = hours;
-            minsSpan.textContent = minutes;
-            secsSpan.textContent = seconds;
           }
         </script>
       {% endif %}
