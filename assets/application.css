@@ -13,6 +13,7 @@
     --font-weight-light: 300;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --tracking-wide: 0.025em;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -210,6 +211,9 @@
   .bottom-\[160px\] {
     bottom: 160px;
   }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
+  }
   .left-\[-00px\] {
     left: -00px;
   }
@@ -254,6 +258,9 @@
   }
   .mt-0 {
     margin-top: calc(var(--spacing) * 0);
+  }
+  .mt-\[24px\] {
+    margin-top: 24px;
   }
   .block {
     display: block;
@@ -318,6 +325,9 @@
   .w-\[64vw\] {
     width: 64vw;
   }
+  .w-\[100\%\] {
+    width: 100%;
+  }
   .max-w-\[36vw\] {
     max-width: 36vw;
   }
@@ -347,6 +357,9 @@
   }
   .items-center {
     align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
   }
   .justify-between {
     justify-content: space-between;
@@ -402,6 +415,12 @@
   .px-\[12px\] {
     padding-inline: 12px;
   }
+  .py-\[8px\] {
+    padding-block: 8px;
+  }
+  .py-\[16px\] {
+    padding-block: 16px;
+  }
   .pt-0 {
     padding-top: calc(var(--spacing) * 0);
   }
@@ -420,11 +439,26 @@
   .text-\[10px\] {
     font-size: 10px;
   }
+  .text-\[12px\] {
+    font-size: 12px;
+  }
   .text-\[14px\] {
     font-size: 14px;
   }
+  .text-\[15px\] {
+    font-size: 15px;
+  }
   .text-\[16px\] {
     font-size: 16px;
+  }
+  .text-\[20px\] {
+    font-size: 20px;
+  }
+  .text-\[28px\] {
+    font-size: 28px;
+  }
+  .text-\[34px\] {
+    font-size: 34px;
   }
   .leading-\[124\%\] {
     --tw-leading: 124%;
@@ -445,6 +479,42 @@
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+  }
+  .tracking-\[1\,24\%\] {
+    --tw-tracking: 1,24%;
+    letter-spacing: 1,24%;
+  }
+  .tracking-\[1\,24\] {
+    --tw-tracking: 1,24;
+    letter-spacing: 1,24;
+  }
+  .tracking-\[1\.24\] {
+    --tw-tracking: 1.24;
+    letter-spacing: 1.24;
+  }
+  .tracking-\[2\.5\] {
+    --tw-tracking: 2.5;
+    letter-spacing: 2.5;
+  }
+  .tracking-\[2\.5px\] {
+    --tw-tracking: 2.5px;
+    letter-spacing: 2.5px;
+  }
+  .tracking-\[24\%\] {
+    --tw-tracking: 24%;
+    letter-spacing: 24%;
+  }
+  .tracking-\[24\] {
+    --tw-tracking: 24;
+    letter-spacing: 24;
+  }
+  .tracking-\[\<value\>\] {
+    --tw-tracking: <value>;
+    letter-spacing: <value>;
+  }
+  .tracking-wide {
+    --tw-tracking: var(--tracking-wide);
+    letter-spacing: var(--tracking-wide);
   }
   .text-ellipsis {
     text-overflow: ellipsis;
@@ -472,6 +542,9 @@
   }
   .opacity-20 {
     opacity: 20%;
+  }
+  .opacity-100 {
+    opacity: 100%;
   }
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
@@ -505,6 +578,11 @@
   .ease-linear {
     --tw-ease: linear;
     transition-timing-function: linear;
+  }
+  .md\:invisible {
+    @media (width >= 48rem) {
+      visibility: hidden;
+    }
   }
   .md\:visible {
     @media (width >= 48rem) {
@@ -618,6 +696,10 @@
   inherits: false;
 }
 @property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
   syntax: "*";
   inherits: false;
 }
@@ -763,6 +845,7 @@
       --tw-border-style: solid;
       --tw-leading: initial;
       --tw-font-weight: initial;
+      --tw-tracking: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
       --tw-shadow-alpha: 100%;
