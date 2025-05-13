@@ -169,8 +169,10 @@
         </div>
         <script>
           document.getElementById('timer-{{ section.id }}-section');
-          const endDate = newDate('{{ section.settings.deadline }}');
-          console.log(endDate);
+          const currentDate = new Date();
+          console.log(currentDate);
+          // const endDate = new Date('{{ section.settings.deadline }}');
+          console.log('{{ section.settings.deadline }}');
         </script>
       {% comment %} {% endif %} {% endcomment %}
     </div>
@@ -199,7 +201,7 @@
     {
       "type": "text",
       "id": "deadline",
-      "label": "Set timer deadline according to YYYY, MM, DD, Hour, Min"
+      "label": "Set timer deadline according to YYYY, MM, DD, Hour, Min, Sec"
     },
     {
       "type": "range",
